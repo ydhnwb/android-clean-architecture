@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Clean Architecture Exercise</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="header_login">Sign in</string>
+    <string name="header_desc_login">Login to your account to access all the feature.</string>
+    <string name="hint_login_email_edit_text">Enter your email</string>
+    <string name="hint_login_password_edit_text">Password</string>
+    <string name="button_text_login">Sign in</string>
+    <string name="button_text_dont_have_account">I don\'t have an account</string>
+    <string name="button_text_ok">Ok</string>
+    <string name="error_email_not_valid">Email is not valid</string>
+    <string name="error_password_not_valid">Password is not valid</string>
+    <string name="header_register">Sign up</string>
+    <string name="header_desc_register">Create an account to get access to all the feature</string>
+    <string name="button_text_back">Back</string>
+    <string name="hint_register_name">Your full name</string>
+    <string name="button_text_register">Create account</string>
+    <string name="error_name_not_valid">Name is not valid</string>
+</resources>
