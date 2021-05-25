@@ -24,4 +24,12 @@
     <string name="hint_register_name">Your full name</string>
     <string name="button_text_register">Create account</string>
     <string name="error_name_not_valid">Name is not valid</string>
+    <string name="main_fragment_home">Primary</string>
+    <string name="main_fragment_detail">Detail</string>
+    <string name="hint_product_name">Product name</string>
+    <string name="hint_product_price">Price</string>
+    <string name="button_text_update">Update</string>
+    <string name="button_text_delete">Delete</string>
+    <string name="error_product_name_not_valid">Product name is not valid</string>
+    <string name="error_price_not_valid">Price is not valid</string>
 </resources>

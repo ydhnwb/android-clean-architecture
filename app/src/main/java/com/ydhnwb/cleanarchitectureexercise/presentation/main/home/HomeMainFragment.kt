@@ -2,11 +2,13 @@ package com.ydhnwb.cleanarchitectureexercise.presentation.main.home
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ydhnwb.cleanarchitectureexercise.R
 import com.ydhnwb.cleanarchitectureexercise.databinding.FragmentMainHomeBinding
@@ -38,10 +40,10 @@ class HomeMainFragment : Fragment(R.layout.fragment_main_home) {
         val mAdapter = HomeMainProductAdapter(mutableListOf())
         mAdapter.setItemTapListener(object : HomeMainProductAdapter.OnItemTap{
             override fun onTap(product: ProductEntity) {
-                requireActivity().showToast(product.name)
+                val b = bundleOf("product_id" to product.id)
+                findNavController().navigate(R.id.action_home_to_detail, b)
             }
         })
-
 
         binding.productsRecyclerView.apply {
             adapter = mAdapter
