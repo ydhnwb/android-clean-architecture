@@ -39,10 +39,6 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, sharedPrefs.getToken(), Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
     }
 
     override fun onStart() {
@@ -61,6 +57,11 @@ class MainActivity : AppCompatActivity() {
         finish()
     }
 
+    private fun signOut(){
+        sharedPrefs.clear()
+        goToLoginActivity()
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
@@ -68,7 +69,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_sign_out -> {
+                signOut()
+                return true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

@@ -33,7 +33,14 @@ class HomeMainFragment : Fragment(R.layout.fragment_main_home) {
         _binding = FragmentMainHomeBinding.bind(view)
         setupRecyclerView()
         observe()
+        goToCreateProductPage()
         fetchProducts()
+    }
+
+    private fun goToCreateProductPage(){
+        binding.createFab.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_create)
+        }
     }
 
     private fun setupRecyclerView(){

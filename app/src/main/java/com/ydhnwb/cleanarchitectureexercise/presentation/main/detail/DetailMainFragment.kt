@@ -30,6 +30,7 @@ class DetailMainFragment : Fragment(R.layout.fragment_main_detail) {
         _binding = FragmentMainDetailBinding.bind(view)
         observe()
         update()
+        delete()
         fetchCurrentProduct()
     }
 
@@ -49,9 +50,17 @@ class DetailMainFragment : Fragment(R.layout.fragment_main_detail) {
         binding.updateButton.setOnClickListener {
             val name = binding.productNameEditText.text.toString().trim()
             val price = binding.productPriceEditText.text.toString().trim()
+            val id = arguments?.getInt("product_id") ?: 0
             if(validate(name, price)){
-                viewModel.update(ProductUpdateRequest(name, price.toInt()))
+                viewModel.update(ProductUpdateRequest(name, price.toInt()), id.toString())
             }
+        }
+    }
+
+    private fun delete(){
+        binding.deleteButton.setOnClickListener {
+            val id = arguments?.getInt("product_id") ?: 0
+            viewModel.delete(id.toString())
         }
     }
 
@@ -71,9 +80,8 @@ class DetailMainFragment : Fragment(R.layout.fragment_main_detail) {
 
     private fun handleState(state: DetailMainFragmentState){
         when(state){
-            is DetailMainFragmentState.SuccessUpdate -> {
-                findNavController().navigate(R.id.action_update_to_home)
-            }
+            is DetailMainFragmentState.SuccessUpdate -> findNavController().navigate(R.id.action_update_to_home)
+            is DetailMainFragmentState.SuccessDelete -> findNavController().navigate(R.id.action_update_to_home)
             is DetailMainFragmentState.Init -> Unit
             is DetailMainFragmentState.ShowToast -> requireActivity().showToast(state.message)
             is DetailMainFragmentState.IsLoading -> handleLoading(state.isLoading)
