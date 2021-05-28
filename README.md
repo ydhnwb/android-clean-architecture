@@ -30,9 +30,11 @@ There are 3 layer in this app.
 | etc...                  | etc..                 | etc...                             |
 
 
+<img src="https://github.com/ydhnwb/android-clean-architecture/blob/main/docs/clean.png">
+
 ## App Level Example
 
-| Presentation Layer             | Something in Between  | Domain Layer                      | Data Layer                         |
-| ------------------------------ | --------------------- | --------------------------------- | ---------------------------------- |
-| LoginActivity & LoginViewModel | <- LoginUseCase ->    | <- LoginRepository (interface) -> | <- LoginRepositoryImplementation   | 
+| Presentation Layer             | Something in Between  | Domain Layer                      | Data Layer                         | Outer data layer |
+| ------------------------------ | --------------------- | --------------------------------- | ---------------------------------- | ---------------- |
+| LoginActivity & LoginViewModel | <- LoginUseCase ->    | <- LoginRepository (interface) -> | <- LoginRepositoryImplementation   | DataSource       |
 
