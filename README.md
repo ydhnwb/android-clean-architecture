@@ -12,7 +12,7 @@ _Clean architecture_ refers to organizing the project so that it’s easy to und
 - If you want tutorial how to create this app step by step, go to this [youtube playlist](https://www.youtube.com/playlist?list=PLkVx132FdJZnNsBTJSr4Sc1oAwRFXl2G4).
 
 ## Notes
-I created this app just for example how to implement clean architecture on android. _**It really biased to my self preference and experience. Also, _clean architecture_ is not mandatory to do. If you feel that you/your team are taking so much benefit by implementing this design pattern, then go for it. Otherwise, don't use it or just modify to your/your team preferences.**_
+I created this app just for example how to implement clean architecture on android. _**It really biased to my preference and experience. Also, _clean architecture_ is not mandatory to do. If you feel that you/your team are taking so much benefit by implementing this design pattern, then go for it. Otherwise, don't use it or just modify to your/your team preferences.**_
 
 ## Main Picture
 There are 3 layer in this app.  
