@@ -40,7 +40,6 @@ class HomeMainViewModel @Inject constructor(private val getAllMyProductUseCase: 
                 }
                 .catch { exception ->
                     hideLoading()
-                    Log.e("ViewModel", exception.stackTraceToString())
                     showToast(exception.message.toString())
                 }
                 .collect { result ->
@@ -50,9 +49,7 @@ class HomeMainViewModel @Inject constructor(private val getAllMyProductUseCase: 
                             products.value = result.data
                         }
                         is BaseResult.Error -> {
-//                            showToast(result.rawResponse.message)
-                            showToast(result.rawResponse.errors!!.get(0))
-                            result.rawResponse.errors?.get(0)?.let { Log.e("HomeMainVM", it) }
+                            showToast(result.rawResponse.message)
                         }
                     }
                 }

@@ -15,6 +15,7 @@
 
         <TextView
             android:maxLines="3"
+            android:textColor="?android:attr/textColorPrimary"
             android:id="@+id/product_name_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

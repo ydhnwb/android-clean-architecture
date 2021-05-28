@@ -21,7 +21,6 @@ class LoginRepositoryImpl @Inject constructor(private val loginApi: LoginApi) : 
             if(response.isSuccessful){
                 val body = response.body()!!
                 val loginEntity = LoginEntity(body.data?.id!!, body.data?.name!!, body.data?.email!!, body.data?.token!!)
-                println("xxxx ${loginEntity.token}")
                 emit(BaseResult.Success(loginEntity))
             }else{
                 val type = object : TypeToken<WrappedResponse<LoginResponse>>(){}.type

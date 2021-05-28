@@ -50,7 +50,4 @@ class SharedPrefs (private val context: Context) {
             remove(PREF_TOKEN)
         }.apply()
     }
-
-
-
 }

@@ -1,4 +1,4 @@
-package com.ydhnwb.cleanarchitectureexercise.data.product.remote
+package com.ydhnwb.cleanarchitectureexercise.data.product
 
 import com.ydhnwb.cleanarchitectureexercise.data.common.module.NetworkModule
 import com.ydhnwb.cleanarchitectureexercise.data.product.remote.api.ProductApi

@@ -1,19 +1,14 @@
 package com.ydhnwb.cleanarchitectureexercise.data.common.module
 
-import android.content.Context
 import com.ydhnwb.cleanarchitectureexercise.BuildConfig
 import com.ydhnwb.cleanarchitectureexercise.data.common.utils.RequestInterceptor
 import com.ydhnwb.cleanarchitectureexercise.infra.utils.SharedPrefs
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -28,7 +23,6 @@ object NetworkModule {
     fun provideRetrofit(okHttp: OkHttpClient) : Retrofit {
         return Retrofit.Builder().apply {
             addConverterFactory(GsonConverterFactory.create())
-            addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             client(okHttp)
             baseUrl(BuildConfig.API_BASE_URL)
         }.build()
