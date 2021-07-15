@@ -121,7 +121,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun handleSuccessLogin(loginEntity: LoginEntity){
         sharedPrefs.saveToken(loginEntity.token)
-        showToast("Welcome ${loginEntity.token}")
+        showToast("Welcome ${loginEntity.name}")
         goToMainActivity()
     }
 
