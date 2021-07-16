@@ -19,6 +19,10 @@ class HomeMainViewModel @Inject constructor(private val getAllMyProductUseCase: 
     private val products = MutableStateFlow<List<ProductEntity>>(mutableListOf())
     val mProducts: StateFlow<List<ProductEntity>> get() = products
 
+    init {
+        fetchAllMyProducts()
+    }
+
 
     private fun setLoading(){
         state.value = HomeMainFragmentState.IsLoading(true)

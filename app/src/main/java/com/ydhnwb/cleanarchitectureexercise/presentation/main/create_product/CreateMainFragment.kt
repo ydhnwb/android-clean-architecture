@@ -3,6 +3,7 @@ package com.ydhnwb.cleanarchitectureexercise.presentation.main.create_product
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
@@ -30,6 +31,13 @@ class CreateMainFragment : Fragment(R.layout.fragment_main_create){
         createProduct()
     }
 
+    private fun setResultOkToPreviousFragment(){
+        val r = Bundle().apply {
+            putBoolean("success_create", true)
+        }
+        setFragmentResult("success_create", r)
+    }
+
     private fun observe(){
         viewModel.mState.flowWithLifecycle(viewLifecycleOwner.lifecycle, Lifecycle.State.STARTED)
             .onEach { state -> handleState(state) }
@@ -39,7 +47,10 @@ class CreateMainFragment : Fragment(R.layout.fragment_main_create){
     private fun handleState(state: CreateMainFragmentState){
         when(state){
             is CreateMainFragmentState.IsLoading -> handleLoading(state.isLoading)
-            is CreateMainFragmentState.SuccessCreate -> findNavController().navigate(R.id.action_create_to_home)
+            is CreateMainFragmentState.SuccessCreate -> {
+                setResultOkToPreviousFragment()
+                findNavController().navigateUp()
+            }
             is CreateMainFragmentState.ShowToast -> requireActivity().showToast(state.message)
             is CreateMainFragmentState.Init -> Unit
         }

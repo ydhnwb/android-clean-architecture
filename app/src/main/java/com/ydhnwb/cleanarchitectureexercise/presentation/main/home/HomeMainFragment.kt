@@ -2,8 +2,11 @@ package com.ydhnwb.cleanarchitectureexercise.presentation.main.home
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
@@ -34,7 +37,11 @@ class HomeMainFragment : Fragment(R.layout.fragment_main_home) {
         setupRecyclerView()
         observe()
         goToCreateProductPage()
-        fetchProducts()
+        setFragmentResultListener("success_create"){ requestKey, bundle ->
+            if(bundle.getBoolean("success_create")){
+               viewModel.fetchAllMyProducts()
+            }
+        }
     }
 
     private fun goToCreateProductPage(){
